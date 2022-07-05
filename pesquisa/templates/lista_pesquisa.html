@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load filtros %}
+
+{% block 'lista' %}Lista de Pesquisas {% endblock %}
+
+{% block 'titulo' %} Pesquisas {% endblock %}
+
+{% block 'conteudo' %}
+<div class="container">
+    <br>
+    <div class="row">
+        <a href="{% url 'cria_pesquisa' %}" class="btn btn-primary btn-lg"> Criar uma nova pesquisa</a>
+        
+        {% for pesquisa in pesquisas %}
+        <div class="col-md-3">
+            <br>
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">{{pesquisa.nome}}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">{{pesquisa.validade}}</h6>
+                    <p class="card-text">Tempo de duração {{pesquisa.validade|diferenca_data:pesquisa.data_criada}}
+                        Dia(s)</p>
+                    <a href="{% url 'detalhe_pesquisa' pesquisa.id %}" class="btn btn-info">Detalhes</a>
+
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+<br>
+{% endblock %}

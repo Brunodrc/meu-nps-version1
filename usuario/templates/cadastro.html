@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block 'titulo' %}Cadastro de usuário {% endblock %}
+{% block 'conteudo' %}
+<div class="container">
+    <br>
+    {% if status == '0' %}
+    <div class="alert alert-success" role="alert">
+        Cadastro realizado com sucesso.
+    </div>
+    {% endif %}
+    {% if status == '1' %}
+    <div class="alert alert-danger" role="alert">
+        Nome e e-mail não podem ficar em branco.
+    </div>
+    {% endif %}
+    {% if status == '2' %}
+    <div class="alert alert-danger" role="alert">
+        O usuário já está cadastrado no sistema.
+    </div>
+    {% endif %}
+    {% if status == '3' %}
+    <div class="alert alert-danger" role="alert">
+        ERRO interno do sistema.
+    </div>
+    {% endif %}
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md">
+            <h1>Faça seu cadastro:</h1>
+            <hr>
+            <form method="POST" action="{% url 'valida_cadastro'%}" >{% csrf_token %}
+                <label>Nome</label>
+                <input name="nome" class="form-control" type="text" placeholder="Digite seu nome">
+                <label>E-mail</label>
+                <input name="email" class="form-control" type="email" placeholder="Digite seu e-mail">
+                <label>Senha</label>
+                <input name="senha" class="form-control" type="password" placeholder="Digite uma senha">
+                <label>Telefone</label>
+                <input name="telefone" class="form-control" type="text" placeholder="Digite seu número de telefone">
+                <input class="btn btn-success btn-lg" type="submit" value="Cadastrar">
+                <a href="{% url 'login' %}" class="btn btn-warning btn-lg">Login</a>
+            </form>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+
+</div>
+{% endblock %}

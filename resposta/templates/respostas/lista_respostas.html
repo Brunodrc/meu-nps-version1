@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load filtros_respostas %}
+
+{% block 'titulo' %}Pesquisa de satisfação{% endblock %}
+
+{% block 'conteudo' %}
+<div class="container">
+   <h1>Respostas</h1>
+   <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Pesquisa/Tipo de atendimento</th>
+        <th scope="col">Resposta</th>
+        <th scope="col">Nome do cliente</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for i in resposta %}
+        <tr>
+            <th scope="row">{{i.item_pesquisa}}</th>
+            <td>{{i.resposta_cli}}</td>
+            <td>{{i.nome_cliente}}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+   <p>Total de Pesquisas respondidas: {{resposta|conta_respostas}}</p>
+</div>
+{% endblock %}

@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <title>{% block 'titulo' %} {% endblock %}</title>
+</head>
+
+<body>
+    <nav style="text-align: center" class="text-center navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="row">
+            <div class="col-3"></div>
+            <div class="col-md">
+                <h3>Antecipadamente, agradecemos, por responder ao nosso questionário!</h3>
+            </div>
+            <div class="col-3"></div>
+        </div>
+    </nav>
+    {% block 'conteudo' %} {% endblock %}
+
+    <!--Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

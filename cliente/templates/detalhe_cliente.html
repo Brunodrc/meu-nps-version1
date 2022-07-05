@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block 'titulo' %} Editanto dados dos Clientes {% endblock %}
+
+{% block 'conteudo' %}
+<div class="container">
+    <br>
+    <form action="#" method="POST"> {% csrf_token %}
+        <p>
+            <label>Nome do cliente:</label>
+            <input class="form-control" type="text" value="{{cliente.nome}}">
+        </p>
+        <p>
+            <label>E-mail:</label>
+            <input class="form-control" type="text" value="{{cliente.email}}">
+        </p>
+        <p>
+            <label>Número de Whatsapp:</label>
+            <input class="form-control" type="text" value="{{cliente.whatsapp}}">
+        </p>
+        <br>
+        <input type="submit" class="btn btn-success btn-lg" value="Salvar">
+    </form>
+    <br>
+    <!-- Button trigger modal -->
+<button type="button" class="btn btn-danger btn-lg" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    Excluir
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Você deseja EXCLUIR esse dado?</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <a href="{% url 'excluir_cliente' id_cliente %}" class="btn btn-danger">Sim, desejo.</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+{% endblock %}

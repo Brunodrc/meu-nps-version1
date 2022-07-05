@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block 'titulo' %} Página inicial {% endblock %}
+
+{% block 'conteudo' %}
+
+<div class="container">
+  <br>
+  
+  <div class="row">
+    <h1 class="text-center text-primary">Página inicial</h1>
+    <br>
+    <div class="col-md-4">
+      <div class="card text-bg-info mb-3" style="max-width: 40rem;margin-top: 10px;">
+        <a class="text-decoration-none" href="{% url 'listar_cliente' %}">
+          <div class="card-body">
+            <h5 class="text-center">Seus clientes</h5>
+          </div>
+        </a>  
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card text-bg-info mb-3" style="max-width: 40rem;margin-top: 10px;">
+        <a class="text-decoration-none" href="{% url 'listar_pesquisa' %}">
+          <div class="card-body">
+            <h5 class="text-center">Suas Pesquisa</h5>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card text-bg-info mb-3" style="max-width: 40rem;margin-top: 10px;">
+        <a class="text-decoration-none" href="{% url 'lista_respostas' %}">
+          <div class="card-body">
+            <h5 class="text-center">Avaliações recebidas</h5>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

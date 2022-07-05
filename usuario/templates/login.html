@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block 'titulo' %} Login {% endblock %}
+
+{% block 'conteudo' %}
+<div class="container">
+    {% if status == '1' %}
+    <div class="alert alert-danger" role="alert">
+        Usuario e senha não correspodem.
+    </div>
+    {% endif %}
+    {% if status == '2' %}
+    <div class="alert alert-danger" role="alert">
+        Efetue o login para acessar o sistema.
+    </div>
+    {% endif %}
+    <div class="row align-items-center">
+        <div class="col-md-4">
+            <ul class="list-group list-group-flush">
+                <br>
+                <li style="font-size: 20px;background-color: #0D6EFD;color: white;"
+                    class="list-group-item border-0"> Promove melhor desempenho</li> <br>
+                <li style="font-size: 20px;background-color: #0D6EFD;color: white;"
+                    class="list-group-item border-0">Satisfação do cliente em foco</li> <br>
+                <li style="font-size: 20px;background-color: #0D6EFD;color: white;"
+                    class="list-group-item border-0">Incentiva mudanças positivas</li> <br>
+                <li style="font-size: 20px;background-color: #0D6EFD;color: white;"
+                    class="list-group-item border-0">Ajuda melhor o seu cliente</li> <br>
+                <li style="font-size: 20px;background-color: #0D6EFD;color: white;"
+                    class="list-group-item border-0">Melhore a qualidae do pós-venda</li>
+                <br>
+            </ul>
+        </div>
+        <div class="col-md-6 align-self-center">
+            <h1>Faça seu Login</h1>
+            <h2>Insira os seus dados:</h2>
+            <hr>
+            <form method="POST" action="{% url 'valida_login' %}">{% csrf_token %}
+                <label>E-mail</label>
+                <input name="email" class="form-control" type="email" placeholder="Digite seu e-mail">
+                <label>Senha</label>
+                <input name="senha" class="form-control" type="password" placeholder="Digite uma senha">
+                <input class="btn btn-dark btn-lg" type="submit" value="Fazer o login">
+                <a href="{% url 'cadastro' %}" class="btn btn-info btn-lg">Fazer o cadastro</a>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
